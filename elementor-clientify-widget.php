@@ -2,7 +2,7 @@
 /*
 Plugin Name: Form Clientify
 Description: Un widget personalizado de Elementor para incrustar formularios de Clientify sin problemas.
-Version: 0.0.1
+Version: 0.0.2
 Author: Yasiel Hernández Portal
 */
 
