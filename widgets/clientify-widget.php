@@ -41,8 +41,14 @@ class Elementor_Clientify_Widget extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         $form_id = esc_attr($settings['form_id']);
 
-        echo '<div id="clientify_form_' . $form_id . '"></div>';
-        echo '<script type="text/javascript" src="https://api.clientify.net/web-marketing/superforms/script/' . $form_id . '.js"></script>';
+        if (!\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+            // Sólo inyectar el script cuando no esté en modo de edición de Elementor
+            echo '<div id="clientify_form_' . $form_id . '"></div>';
+            echo '<script type="text/javascript" src="https://api.clientify.net/web-marketing/superforms/script/' . $form_id . '.js"></script>';
+        } else {
+            // Mostrar un placeholder o mensaje en el editor
+            echo '<div>Formulario cargando</div>';
+        }
     }
 
     protected function _content_template() {
